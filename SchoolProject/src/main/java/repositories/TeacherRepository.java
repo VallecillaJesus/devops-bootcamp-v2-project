@@ -1,27 +1,37 @@
 package repositories;
 
-import models.Student;
 import models.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
-public class TeacherRepository {
-    private List<Teacher> teachers;
+public class TeacherRepository implements Repository<Teacher> {
 
-    public TeacherRepository() {
-        this.teachers = new ArrayList<>();
+    private List<Teacher> teachers= new ArrayList<>();
+    private static TeacherRepository teacherRepository;
+
+    public static TeacherRepository getInstance(){
+        if(Objects.isNull(teacherRepository)){
+            teacherRepository = new TeacherRepository();
+        }
+        return teacherRepository;
     }
 
-    public List<Teacher> getAllTeachers() {
-        return this.teachers;
+    @Override
+    public void save(Teacher teacher) {
+        teachers.add(teacher);
     }
 
-    public Teacher getTeacherByCode(String code) {
-        return teachers.stream().filter(teacher -> teacher.getCode().equals(code)).findAny().orElse(null);
+    @Override
+    public List<Teacher> getAll() {
+        return teachers;
     }
 
-    public void addTeacher(Teacher t) {
-        this.teachers.add(t);
+    @Override
+    public Optional<Teacher> getByCode(String code) {;
+        return teachers.stream().filter(teacher -> teacher.getCode().equals(code)).findAny();
     }
+
 }
