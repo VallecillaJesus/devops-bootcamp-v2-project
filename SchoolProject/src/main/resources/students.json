@@ -12,5 +12,19 @@
     "age": "14",
     "grade": "MIDDLE_SCHOOL",
     "score": "C"
+  },
+  {
+    "code": "ST-03-Sophie",
+    "name": "Sophie Tiktok",
+    "age": "10",
+    "grade": "ELEMENTARY_SCHOOL",
+    "score": "A"
+  },
+  {
+    "code": "ST-04-Tom",
+    "name": "Steve Perez",
+    "age": "17",
+    "grade": "ELEMENTARY_SCHOOL",
+    "score": "B"
   }
 ]
