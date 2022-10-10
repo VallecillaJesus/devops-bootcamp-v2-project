@@ -1,11 +1,9 @@
 package models;
 
-import helpers.Grade;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Teacher {
+public class Teacher implements Entity{
     private String code;
     private String name;
     private List<Subject> subjectList;
@@ -15,8 +13,9 @@ public class Teacher {
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
+    public Teacher(String code, String name) {
+        this.code = code;
+        this.name = name;
     }
 
     public void addSubject(Subject sub) {
@@ -25,5 +24,22 @@ public class Teacher {
         }
 
         this.subjectList.add(sub);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getCode() {
+        return this.code;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "name='" + name + '\'' +
+                ", subjectList=" + subjectList +
+                '}';
     }
 }

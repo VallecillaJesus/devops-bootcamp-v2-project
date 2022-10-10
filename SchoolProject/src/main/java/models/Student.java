@@ -1,9 +1,9 @@
 package models;
 
-import helpers.Grade;
-import helpers.Score;
+import models.enums.Grade;
+import models.enums.Score;
 
-public class Student {
+public class Student implements Entity{
     private String code;
     private String name;
     private int age;
@@ -17,11 +17,37 @@ public class Student {
         this.grade = grade;
     }
 
-    public String getCode() {
-        return code;
+    public Student(String code, String name, int age, Grade grade) {
+        this.code = code;
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
     }
 
     public String getScore() {
         return getScore();
+    }
+
+    @Override
+    public String getCode() {
+        return this.code;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grade grade) {
+        this.grade = grade;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", grade=" + grade +
+                ", score=" + score +
+                '}';
     }
 }
